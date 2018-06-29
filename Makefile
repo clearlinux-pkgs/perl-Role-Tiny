@@ -1,5 +1,5 @@
 PKG_NAME := perl-Role-Tiny
-URL := http://search.cpan.org/CPAN/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
-
+URL = https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
+ARCHIVES = 
 
 include ../common/Makefile.common
