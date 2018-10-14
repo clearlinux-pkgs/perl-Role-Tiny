@@ -4,13 +4,13 @@
 #
 Name     : perl-Role-Tiny
 Version  : 2.000006
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
 Summary  : 'Roles. Like a nouvelle cuisine portion size slice of Moose.'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-Role-Tiny-man
+BuildRequires : buildreq-cpan
 
 %description
 NAME
@@ -18,12 +18,13 @@ Role::Tiny - Roles. Like a nouvelle cuisine portion size slice of Moose.
 SYNOPSIS
 package Some::Role;
 
-%package man
-Summary: man components for the perl-Role-Tiny package.
-Group: Default
+%package dev
+Summary: dev components for the perl-Role-Tiny package.
+Group: Development
+Provides: perl-Role-Tiny-devel = %{version}-%{release}
 
-%description man
-man components for the perl-Role-Tiny package.
+%description dev
+dev components for the perl-Role-Tiny package.
 
 
 %prep
@@ -52,9 +53,9 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -63,10 +64,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Role/Tiny.pm
-/usr/lib/perl5/site_perl/5.26.1/Role/Tiny/With.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Role/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Role/Tiny/With.pm
 
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Role::Tiny.3
 /usr/share/man/man3/Role::Tiny::With.3
