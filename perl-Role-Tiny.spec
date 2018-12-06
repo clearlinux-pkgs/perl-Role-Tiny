@@ -64,8 +64,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1Role/Tiny.pm
-/usr/lib/perl5/vendor_perl/5.28.1Role/Tiny/With.pm
+/usr/lib/perl5/vendor_perl/5.28.1/Role/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.28.1/Role/Tiny/With.pm
 
 %files dev
 %defattr(-,root,root,-)
