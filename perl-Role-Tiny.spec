@@ -4,7 +4,7 @@
 #
 Name     : perl-Role-Tiny
 Version  : 2.000006
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
 Summary  : 'Roles. Like a nouvelle cuisine portion size slice of Moose.'
