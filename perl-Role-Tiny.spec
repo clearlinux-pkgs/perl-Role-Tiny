@@ -4,13 +4,14 @@
 #
 Name     : perl-Role-Tiny
 Version  : 2.001004
-Release  : 22
+Release  : 23
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz
-Summary  : Roles. Like a nouvelle cuisine portion size slice of Moose.
+Summary  : 'Roles: a nouvelle cuisine portion size slice of Moose'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Role-Tiny-license = %{version}-%{release}
+Requires: perl-Role-Tiny-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : util-linux
 
@@ -25,7 +26,6 @@ Summary: dev components for the perl-Role-Tiny package.
 Group: Development
 Provides: perl-Role-Tiny-devel = %{version}-%{release}
 Requires: perl-Role-Tiny = %{version}-%{release}
-Requires: perl-Role-Tiny = %{version}-%{release}
 
 %description dev
 dev components for the perl-Role-Tiny package.
@@ -39,8 +39,18 @@ Group: Default
 license components for the perl-Role-Tiny package.
 
 
+%package perl
+Summary: perl components for the perl-Role-Tiny package.
+Group: Default
+Requires: perl-Role-Tiny = %{version}-%{release}
+
+%description perl
+perl components for the perl-Role-Tiny package.
+
+
 %prep
 %setup -q -n Role-Tiny-2.001004
+cd %{_builddir}/Role-Tiny-2.001004
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -78,8 +88,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Role/Tiny.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Role/Tiny/With.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -89,3 +97,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl-Role-Tiny/9ef6cb6bf8daa686a87a0d40ac8adcc38ff0a71c
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Role/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Role/Tiny/With.pm
