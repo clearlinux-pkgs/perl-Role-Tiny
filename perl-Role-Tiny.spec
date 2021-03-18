@@ -4,7 +4,7 @@
 #
 Name     : perl-Role-Tiny
 Version  : 2.002004
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.002004.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.002004.tar.gz
 Summary  : 'Roles: a nouvelle cuisine portion size slice of Moose'
@@ -99,5 +99,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Role/Tiny.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Role/Tiny/With.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Role/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Role/Tiny/With.pm
